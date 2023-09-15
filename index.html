@@ -37,9 +37,8 @@
                 <h4 class="header-subtitle">Hello, I am</h4>
                 <h2 class="header-title">Hiren Thakkar</h2>
                 <h6 class="header-mono">Data Scientist | Data Analyst</h6>
-                <a href="imgs/Hiren_Resume.pdf" target="_blank"><button class="btn btn-primary btn-rounded" id="printButton"><i class="ti-printer pr-2"></i>Print
-                    Resume</button></a>
-                <iframe id="pdfFrame" style="display: none;"></iframe>
+                <button class="btn btn-primary btn-rounded" id="printButton"><i class="ti-printer pr-2"></i>Print
+                    Resume</button>
             </div>
         </div>
     </header>
@@ -524,23 +523,22 @@
     </footer>
 
     <!-- JavaScript to handle the print action -->
-    <script>
-        var printButton = document.getElementById("printButton");
-        var pdfFrame = document.getElementById("pdfFrame");
-
-        printButton.addEventListener("click", function () {
-            // Replace 'your_resume.pdf' with the actual path to your PDF file
-            var pdfPath = 'imgs/Hiren_Resume.pdf';
-
-            // Load the PDF into the iframe
-            pdfFrame.src = pdfPath;
-
-            // Wait for the PDF to load before triggering the print
-            pdfFrame.onload = function () {
-                pdfFrame.contentWindow.print();
-            };
-        });
-    </script>
+   <script>
+    var printButton = document.getElementById("printButton");
+    printButton.addEventListener("click", function () {
+      // Replace 'your_resume.pdf' with the actual path to your PDF file
+      var pdfPath = 'your_resume.pdf';
+      
+      // Open a new window with the PDF
+      var printWindow = window.open(pdfPath, '_blank');
+      
+      // Check if the window is loaded
+      printWindow.onload = function () {
+        // Trigger the print dialog for the PDF
+        printWindow.print();
+      };
+    });
+  </script>
 
     <!-- core  -->
     <script src="vendors/jquery/jquery-3.4.1.js"></script>
